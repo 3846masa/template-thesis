@@ -1,0 +1,144 @@
+\documentclass[uplatex,dvipdfmx,a4paper,10pt,twoside,openany,onecolumn]{jsbook}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{datetime}
+
+%% Font Config
+\usepackage[deluxe]{otf}
+\usepackage[noalphabet,ipaex]{pxchfon}
+\usepackage[prefernoncjk]{pxcjkcat}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{lmodern}
+\usepackage{fix-cm}
+\cjkcategory{sym18}{cjk}
+\cjkcategory{sym19}{cjk}
+
+%% Cites
+\usepackage{cite}
+\makeatletter
+\def\NAT@parse{\typeout{}}
+\makeatother
+
+%% Margin Config
+\usepackage[dvipdfm,top=10zw,bottom=12zw,left=10zw,right=10zw]{geometry}
+
+\newcommand{\parasep}{\vspace*{3zh}}
+\setlength{\footskip}{30pt}
+\renewcommand{\baselinestretch}{1.25}
+\sloppy
+
+%% Link Config
+\PassOptionsToPackage{hyphens}{url}
+\usepackage[bookmarks=true,bookmarksnumbered=true,colorlinks=true,pdfusetitle=true]{hyperref}
+\usepackage{pxjahyper}
+\hypersetup{
+  linkcolor=black,
+  citecolor=black,
+  filecolor=black,
+  urlcolor=black,
+  anchorcolor=black
+}
+
+%% Header Config
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{\gtfamily\sffamily\bfseries\upshape \leftmark}
+\chead{}
+\rhead{\gtfamily\sffamily\bfseries\upshape \rightmark}
+\fancyfoot[CE,CO]{\thepage}
+\fancypagestyle{plainhead}{%
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+\renewcommand{\sfdefault}{phv}
+
+\renewcommand{\sectionmark}[1]{\markright{\thesection~#1}{}}
+\renewcommand{\chaptermark}[1]{\markboth{\prechaptername\ \thechapter\ \postchaptername~#1}{}}
+\renewcommand{\headfont}{\gtfamily\sffamily\bfseries}
+
+\makeatletter
+%% MakeTile Config
+\def\thesis#1{\gdef\@thesis{#1}}
+\def\affiliation#1{\gdef\@affiliation{#1}}
+\def\studentid#1{\gdef\@studentid{#1}}
+\def\supervisor#1{\gdef\@supervisor{#1}}
+
+\def\enTitle#1{\gdef\@enTitle{#1}}
+\def\enAuthor#1{\gdef\@enAuthor{#1}}
+\def\enDate#1{\gdef\@enDate{#1}}
+\def\enThesis#1{\gdef\@enThesis{#1}}
+\def\enAffiliation#1{\gdef\@enAffiliation{#1}}
+\def\enStudentid#1{\gdef\@enStudentid{#1}}
+\def\enSupervisor#1{\gdef\@enSupervisor{#1}}
+
+\renewcommand{\maketitle}{%
+\begin{titlepage}
+\begin{center}
+\vspace*{120truept}
+{\Large \@thesis}\\
+
+\vspace*{30truept}
+{\huge \@title}\\ % タイトル
+\vspace*{10truept}
+{\Large \@enTitle}\\ % タイトル
+
+\vspace*{20truept}
+{\Large 指導教官\hspace*{20truept}\@supervisor}\\
+
+\vspace{20truept}
+{\Large \@date}\\
+
+\vspace{100truept}
+{\Large \@affiliation}\\
+
+\vspace{50truept}
+{\Large 学籍番号: \@studentid}\\ % 学籍番号
+
+\vspace{10truept}
+{\huge \@author}\\ % 著者
+
+\end{center}
+\end{titlepage}
+}
+\makeatother
+
+\input{_config}
+
+\begin{document}
+
+\maketitle
+
+\chapter*{概要}
+\thispagestyle{empty}
+\input{doc/abstract}
+\newpage
+
+\chapter*{Abstract}
+\thispagestyle{empty}
+\input{doc/enabstract}
+\newpage
+
+\frontmatter
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+\mainmatter
+
+\input{doc/main}
+
+\backmatter
+
+\chapter*{謝辞}
+\markright{謝辞}
+\addcontentsline{toc}{chapter}{謝辞}
+\input{doc/acknowledgements}
+\newpage
+
+%% Bibliography
+\bibliographystyle{junsrt}
+\bibliography{bib/main}
+
+\end{document}
