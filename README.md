@@ -13,7 +13,7 @@ If you avoid to use Paperist, use [template for Makefile][makefile].
 ## Install
 
 ```bash
-paperist template install --with-example 3846masa/template-thesis
+paperist template install 3846masa/template-thesis --with-example
 ```
 
 ## Example
