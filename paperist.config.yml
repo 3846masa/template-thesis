@@ -1,0 +1,35 @@
+documentInfo:
+  fontpreset: ipaex
+  flags:
+    titlepage: true
+    toc: true
+    appendix: true
+    acknowledgment: true
+    english:
+      abstract: true
+  titlepage:
+    header:
+      ja: 2098年度 卒業研究論文
+      en: The Graduate Thesis
+  title:
+    ja: 飛行機における入力値抽出手法の提案
+    en: Extracting Input in the Case of Airplanes
+  date:
+    year: 2099
+    month: 3
+  affiliates:
+    - id: Univ
+      name:
+        ja: 例示大学 数理科学部\\ポストインターネット学科
+        en: Department of Post-Internet\\Faculty of Mathematical Sciences\\at Reiji University
+  authors:
+    - studentId: 9092153232
+      affiliateIds:
+        - Univ
+      name:
+        ja: 山田 太郎
+        en: Taro Yamada
+  supervisors:
+    - name:
+        ja: 田中 次郎 教授
+        en: Prof. Jiro Tanaka
