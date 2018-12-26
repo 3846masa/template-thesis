@@ -1,7 +1,8 @@
 \documentclass[uplatex,dvipdfmx,a4paper,10pt,twoside,openany,onecolumn]{jsbook}
-\usepackage{graphicx}
+\usepackage[nosetpagesize]{graphicx}
 \usepackage{listings}
 \usepackage{datetime}
+\usepackage{tabu}
 
 % List
 \usepackage{enumitem}
@@ -11,11 +12,13 @@
 \renewcommand{\labelitemiv}{$\circ$}
 
 %% Font Config
+\usepackage[none]{hyphenat}
 \usepackage[deluxe]{otf}
 \usepackage[noalphabet,<%= fontpreset %>]{pxchfon}
 \usepackage[prefernoncjk]{pxcjkcat}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{exscale}
 \usepackage{textcomp}
 \usepackage{lmodern}
 \usepackage{fix-cm}
@@ -38,22 +41,22 @@
 
 %% Link Config
 \PassOptionsToPackage{hyphens}{url}
-\usepackage[bookmarks=true,bookmarksnumbered=true,colorlinks=true,pdfusetitle=true]{hyperref}
+\usepackage[bookmarks=true,bookmarksnumbered=true,hidelinks=true,pdfusetitle=true]{hyperref}
+\expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks
+  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j
+  \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t
+  \do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D
+  \do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N
+  \do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X
+  \do\Y\do\Z\do\*\do\-\do\~\do\'\do\"\do\_}
 \usepackage{pxjahyper}
-\hypersetup{
-  linkcolor=black,
-  citecolor=black,
-  filecolor=black,
-  urlcolor=black,
-  anchorcolor=black
-}
 
 %% Header Config
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\lhead{\gtfamily\sffamily\bfseries\upshape \leftmark}
-\chead{}
-\rhead{\gtfamily\sffamily\bfseries\upshape \rightmark}
+\fancyhead{}
+\fancyhead[LE]{\gtfamily\sffamily\bfseries\upshape \leftmark}
+\fancyhead[RO]{\gtfamily\sffamily\bfseries\upshape \rightmark}
 \fancyfoot[CE,CO]{\thepage}
 \fancypagestyle{plainhead}{%
 \fancyhead{}
@@ -190,6 +193,6 @@
 
 %% Bibliography
 \bibliographystyle{junsrt}
-\bibliography{bibs/main}
+\bibliography{bibs/index}
 
 \end{document}

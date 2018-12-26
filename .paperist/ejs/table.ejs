@@ -1,0 +1,19 @@
+
+<%
+const match = caption.match(/^(.*?)(?:(?:``|")(.*)(?:''|"))?\s*$/);
+const ja = match[1].trim();
+const en = (match[2] || "").trim();
+-%>
+\begin{table}[tb]
+\begin{center}
+\caption{<%= ja %>}
+<% if (en) { -%>
+\ecaption{<%= en %>}
+<% } -%>
+<%= label %>
+\begin{tabu} to \linewidth {<%= align %>}
+<%= value %>
+\end{tabu}
+\end{center}
+\end{table}
+<%# Line Break %>

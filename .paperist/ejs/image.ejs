@@ -1,0 +1,30 @@
+<%
+let onecolumn = false;
+if (Object.prototype.hasOwnProperty.call(config, 'onecolumn')) {
+  onecolumn = true;
+  delete config.onecolumn;
+}
+-%>
+<% if (onecolumn) { -%>
+\begin{figure*}[t]
+<% } else { -%>
+\begin{figure}[tb]
+<% } -%>
+\centering
+\includegraphics[<%= utils.stringify(config) %>]{<%= url %>}
+<%
+if (caption) {
+  const ja = this.all(this.parse(alt || '')).join('').trim();
+  const en = this.all(this.parse(title || '')).join('').trim();
+-%>
+\caption{<%= ja.replace(/\n/g, '\\protect\\\\%\n') %>}
+<% if (en) { -%>
+\ecaption{<%= en.replace(/\n/g, '\\protect\\\\%\n') %>}
+<% } -%>
+<%= label %>
+<% } -%>
+<% if (onecolumn) { -%>
+\end{figure*}
+<% } else { -%>
+\end{figure}
+<% } -%>

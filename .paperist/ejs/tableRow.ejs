@@ -1,0 +1,12 @@
+<% if (isFirst) {
+  -%>\hline\hline
+<%
+} -%>
+<%= value %>
+<% if (isLast) {
+  -%>\hline\hline
+<%
+} else if (isFirst) {
+  -%>\hline
+<%
+} -%>
